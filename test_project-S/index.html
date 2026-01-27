@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test-Team-Project-S</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Test-Pro</h1>
+        <button onclick="runCode()">Run</button>
+    </header>
+    <div class="container">
+        <!--ฝั่งซ้าย: ช่องเขียนโค้ด-->
+        <div class="editors">
+
+            <div class="box">
+                <h2>HTML</h2>
+                <textarea id="htmlCode">
+                    <h1>Teach Web</h1>
+                    <p>HTML/CSS Test</p>
+                    <button onclick="sayHi()">click</button>
+                </textarea>
+            </div>
+
+            <div class="box">
+                <h2>CSS</h2>
+                <textarea id="cssCode">
+                    body{
+  font-family: Arial;
+  text-align: center;
+  padding: 30px;
+  background: #f1f5f9;
+}
+h1{
+  color: #2563eb;
+}
+button{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #22c55e;
+  color: white;
+  cursor: pointer;
+}
+button:hover{
+  background: #16a34a;
+}
+        </textarea>
+      </div>
+
+      <h2>🟨 JavaScript</h2>
+        <textarea id="jsCode">
+function sayHi(){
+  alert("สวัสดี! คุณกำลังเรียนเขียนเว็บอยู่ 😄");
+}
+        </textarea>
+      </div>
+
+    </div>
+
+    <!-- ฝั่งขวา: แสดงผล -->
+    <div class="preview">
+      <h2>🖥 Preview (ผลลัพธ์)</h2>
+      <iframe id="output"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function runCode(){
+      let html = document.getElementById("htmlCode").value;
+      let css = document.getElementById("cssCode").value;
+      let js = document.getElementById("jsCode").value;
+
+      let output = document.getElementById("output");
+
+      let result = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>${css}</style>
+        </head>
+        <body>
+          ${html}
+          <script>${js}<\/script>
+        </body>
+        </html>
+      `;
+
+      output.srcdoc = result;
+    }
+
+    // ให้แสดงผลอัตโนมัติครั้งแรก
+    runCode();
+  </script>
+
+        </div>
+    </div>
+</body>
+</html>
