@@ -1,101 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test-Team-Project-S</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Teach Web</title>
+<link rel="stylesheet" href="style_index.css">
+<link rel="JavaScript" href="script.js">
 </head>
+
 <body>
-    <header>
-        <h1>Test-Pro</h1>
-        <button onclick="runCode()">Run</button>
-    </header>
-    <div class="container">
-        <!--ฝั่งซ้าย: ช่องเขียนโค้ด-->
-        <div class="editors">
 
-            <div class="box">
-                <h2>HTML</h2>
-                <textarea id="htmlCode">
-                    <h1>Teach Web</h1>
-                    <p>HTML/CSS Test</p>
-                    <button onclick="sayHi()">click</button>
-                </textarea>
-            </div>
+<header>
+  <h1>Teach Web</h1>
+  <p>คลิกการ์ดเพื่อเริ่มเรียน</p>
+</header>
 
-            <div class="box">
-                <h2>CSS</h2>
-                <textarea id="cssCode">
-                    body{
-  font-family: Arial;
-  text-align: center;
-  padding: 30px;
-  background: #f1f5f9;
-}
-h1{
-  color: #2563eb;
-}
-button{
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background: #22c55e;
-  color: white;
-  cursor: pointer;
-}
-button:hover{
-  background: #16a34a;
-}
-        </textarea>
+<div class="cards">
+
+  <!-- HTML CARD -->
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>HTML</h2>
+        <p>โครงสร้างเว็บไซต์</p>
       </div>
-
-      <h2>🟨 JavaScript</h2>
-        <textarea id="jsCode">
-function sayHi(){
-  alert("สวัสดี! คุณกำลังเรียนเขียนเว็บอยู่ 😄");
-}
-        </textarea>
+      <div class="card-back">
+        <h3>HTML</h3>
+        <p>ใช้สร้างโครงร่างของเว็บ</p>
+        <button onclick="goPage(event,'html.html')">เข้าเรียน</button>
       </div>
-
-    </div>
-
-    <!-- ฝั่งขวา: แสดงผล -->
-    <div class="preview">
-      <h2>🖥 Preview (ผลลัพธ์)</h2>
-      <iframe id="output"></iframe>
     </div>
   </div>
 
-  <script>
-    function runCode(){
-      let html = document.getElementById("htmlCode").value;
-      let css = document.getElementById("cssCode").value;
-      let js = document.getElementById("jsCode").value;
-
-      let output = document.getElementById("output");
-
-      let result = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <style>${css}</style>
-        </head>
-        <body>
-          ${html}
-          <script>${js}<\/script>
-        </body>
-        </html>
-      `;
-
-      output.srcdoc = result;
-    }
-
-    // ให้แสดงผลอัตโนมัติครั้งแรก
-    runCode();
-  </script>
-
-        </div>
+  <!-- CSS CARD -->
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>CSS</h2>
+        <p>ตกแต่งเว็บไซต์</p>
+      </div>
+      <div class="card-back">
+        <h3>CSS</h3>
+        <p>ทำให้เว็บสวยงาม</p>
+        <button onclick="goPage(event,'css.html')">เข้าเรียน</button>
+      </div>
     </div>
+  </div>
+
+  <!-- JS CARD -->
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>JavaScript</h2>
+        <p>ทำให้เว็บโต้ตอบได้</p>
+      </div>
+      <div class="card-back">
+        <h3>JavaScript</h3>
+        <p>เพิ่มลูกเล่นและ logic</p>
+        <button onclick="goPage(event,'js.html')">เข้าเรียน</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- test Code -->
+    <div class="card" onclick="flipCard(this)">
+        <div class="card-inner">
+        <div class="card-front">
+            <h2>ทดสอบโค้ด</h2>
+            <p>ลองเขียนโค้ด HTML, CSS, JS</p>
+        </div>
+        <div class="card-back">
+            <h3>ทดสอบโค้ด</h3>
+            <p>ฝึกเขียนโค้ดเว็บแบบง่ายๆ</p>
+            <button onclick="goPage(event,'testcode.html')">เข้าเรียน</button>
+            </div>
+        </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
